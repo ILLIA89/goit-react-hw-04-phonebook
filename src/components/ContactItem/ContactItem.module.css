@@ -1,0 +1,27 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.itemName {
+  width: 65%;
+  font-weight: 500;
+}
+
+.itemNumber {
+  margin-right: auto;
+}
+
+.delete_btn {
+  border-radius: 5px;
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  cursor: pointer;
+  border-radius: 5px;
+}

@@ -1,14 +1,19 @@
-import { Component } from 'react';
+// import { Component } from 'react';
 import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 import ContactList from './ContactList/ContactList';
 import style from './App.module.css';
-// dghdfhdfh
-class App extends Component {
-  state = {
-    contacts: [],
-    filter: '',
-  };
+import { useState } from 'react';
+
+export const App = () => {
+  // state = {
+  //   contacts: [],
+  //   filter: '',
+  // };
+
+  // переробити 
+  const [contacts, setContacts] = useState([]);
+  const [filter, setFilter] = useState('');
 
   componentDidMount() {
     const storedContacts = localStorage.getItem('contacts');
@@ -24,11 +29,9 @@ class App extends Component {
   }
 
   handleAddNewContact = newContact => {
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, newContact],
-    }));
-  };
-
+    setContacts(prevContacts =>  [...prevContact.contacts, newContact])
+    };
+//  тут закінчив
   changeFilter = event => {
     this.setState({ filter: event.currentTarget.value });
   };
@@ -48,7 +51,6 @@ class App extends Component {
     }));
   };
 
-  render() {
     const { contacts, filter } = this.state;
     const visibleContacts = this.getVisibleContacts();
     const contactsName = contacts.map(contact => contact.name);
@@ -71,6 +73,6 @@ class App extends Component {
         </div>
       </div>
     );
-  }
+  
 }
 export default App;
